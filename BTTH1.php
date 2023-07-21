@@ -1,6 +1,5 @@
 <?php
 //bt1:
-  $arrs = [2, 5, 6, 9, 2, 5, 6, 12, 5];
   function calculate($arrs) {
       // Tính tổng
       $sum = array_sum($arrs);
@@ -34,17 +33,10 @@
 //BT2:
 
 $color = ['đỏ', 'xanh', 'cam', 'trắng'];
-$names = ['Anh', 'Sơn', 'Thắng', 'tôi'];
 
 // Tạo chuỗi
-$str = '';
-foreach ($color as $key => $value) {
-    if ($key == count($color) - 1) {
-        $str .= "còn màu yêu thích của tôi là màu " . $value;
-    } else {
-        $str .= "Màu " . $value . " là màu yêu thích của " . $names[$key] . ", ";
-    }
-}
+$str = 'Mau'.$color[0].'la mau yeu thich cua Anh, '.$color[1].' la mau yeu thich cua Son '.$color[2].'la mau yeu thich cua Thang, con mau yeu thich cua toi la '.$color[3];
+
 
 // Hiển thị chuỗi
 echo $str;
