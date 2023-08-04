@@ -148,7 +148,7 @@ $array = ['programming', 'php', 'basic', 'dev', 'is', 'program is PHP'];
 
 // Tìm chuỗi có độ dài lớn nhất và nhỏ nhất
 $maxLength = 0;
-$minLength = PHP_INT_MAX;
+$minLength = 9876543212345676;
 $maxString = '';
 $minString = '';
 foreach ($array as $value) {
