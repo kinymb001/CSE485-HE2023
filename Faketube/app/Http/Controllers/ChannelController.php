@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Channel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ChannelController extends Controller
 {
@@ -28,7 +29,13 @@ class ChannelController extends Controller
         ]);
 
         $channel = new Channel();
-        $channel->fill($validatedData);
+        $channel->ChannelName = $validatedData['ChannelName'];
+        $channel->Description = $validatedData['Description'];
+        $channel->SubscribersCount = $validatedData['SubscribersCount'];
+        if ($request->hasFile('video')) {
+            $videoPath = $request->file('video')->store('public/videos');
+            $channel->URL = Storage::url($videoPath);
+        }
         $channel->save();
 
         return redirect('/channels')->with('success', 'Channel created successfully.');
@@ -50,7 +57,14 @@ class ChannelController extends Controller
         ]);
 
         $channel = Channel::findOrFail($id);
-        $channel->update($validatedData);
+        $channel->ChannelName = $validatedData['ChannelName'];
+        $channel->Description = $validatedData['Description'];
+        $channel->SubscribersCount = $validatedData['SubscribersCount'];
+        if ($request->hasFile('video')) {
+            $videoPath = $request->file('video')->store('public/videos');
+            $channel->URL = Storage::url($videoPath);
+        }
+        $channel->save();
 
         return redirect('/channels')->with('success', 'Channel updated successfully.');
     }
