@@ -25,7 +25,7 @@ class ChannelController extends Controller
             'ChannelName' => 'required|string|max:255',
             'Description' => 'required|string',
             'SubscribersCount' => 'required|integer|min:0',
-            'URL' => 'required|url',
+            'video' => 'mimes:mp4,mov,avi,wmv,jpeg,png,gif|max:20000',
         ]);
 
         $channel = new Channel();
@@ -53,7 +53,7 @@ class ChannelController extends Controller
             'ChannelName' => 'required|string|max:255',
             'Description' => 'required|string',
             'SubscribersCount' => 'required|integer|min:0',
-            'URL' => 'required|url',
+            'video' => 'mimes:mp4,mov,avi,wmv,jpeg,png,gif|max:20000',
         ]);
 
         $channel = Channel::findOrFail($id);

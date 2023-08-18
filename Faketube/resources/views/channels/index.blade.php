@@ -26,7 +26,7 @@
                                 <form action="{{ url('/channels/' . $channel->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-sm btn-danger delete-button">Delete</button>
                                 </form>
                             </li>
                         @endforeach
