@@ -14,8 +14,20 @@
                             <li class="list-group-item">
                                 <h4 class="card-title">{{ $channel->ChannelName }}</h4>
                                 <p class="card-text">{{ $channel->Description }}</p>
+                                @if ($channel->URL)
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <video controls>
+                                            <source src="{{ asset($channel->URL) }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                @endif
                                 <a href="{{ url('/channels/' . $channel->id . '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
-                                <button class="btn btn-sm btn-danger delete-button" data-id="{{ $channel->id }}">Delete</button>
+                                <form action="{{ url('/channels/' . $channel->id) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
                             </li>
                         @endforeach
                     </ul>
